@@ -5,23 +5,23 @@ This is a small multi-platform application for downloading files from remote ser
 ### Usage
 
 To use this, you must create a config file in the same directory as the executable.
+
 Example config.json:
 
 ```json
 {
-  "Protocol": "sftp", // Only supports sftp right now
-  "Type": "download", // Only supports download right now
-  
-  // Pick from AllFiles or Files:
+  "Protocol": "sftp",
+  "Type": "download",
   "AllFiles": true,
-  // or
   "Files": ["examplefile.txt"],
-
   "Hosts": ["yourserver:22"],
   "User": "shelluser",
   "KeyPath": "/Users/matt/.ssh/id_rsa",
-  "SourceDirectory": "source", // Path to the directory on the server where the files are placed
+  "SourceDirectory": "source", 
   "DestinationDirectory": "/Users/matt/destination",
-  "DeleteOnRetrieve": true // Should sud delete the files once it has retrieved them?
+  "DeleteOnRetrieve": true
 }
 ```
+
+Bear in mind, you cannot use "AllFiles:" and "Files:" together, pick one or the other.
+This application currently supports "sftp" for the Protocol and "download" for the Type.
